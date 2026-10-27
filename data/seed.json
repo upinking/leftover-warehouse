@@ -1,0 +1,558 @@
+{
+  "schemaVersion": 1,
+  "importId": "leftover-warehouse-2026-10-22-v1",
+  "asOfDate": "2026-10-22",
+  "timezone": "Asia/Shanghai",
+  "source": {
+    "kind": "current-workbook-snapshot",
+    "file": "reference/余料仓库.xlsx",
+    "note": "采购记录来自此前配单核对和用户补充；不是点数入库记录。Excel、CSV 与本文件同源，只导入一次。"
+  },
+  "materials": [
+    {
+      "id": "material-C47344184",
+      "name": "10µF 电解电容（直插）",
+      "category": "电容",
+      "manufacturerPartNumber": "ERG50V10M5X11",
+      "supplier": "LCSC",
+      "supplierPartNumber": "C47344184",
+      "specification": "10µF / 50V",
+      "package": "直插 D5×11mm",
+      "unit": "piece"
+    },
+    {
+      "id": "material-C5137477",
+      "name": "10nF 陶瓷电容",
+      "category": "电容",
+      "manufacturerPartNumber": "FCC0603B103K500CT",
+      "supplier": "LCSC",
+      "supplierPartNumber": "C5137477",
+      "specification": "10nF / 50V X7R",
+      "package": "0603 贴片",
+      "unit": "piece"
+    },
+    {
+      "id": "material-C254085",
+      "name": "100nF 陶瓷电容",
+      "category": "电容",
+      "manufacturerPartNumber": "CC1H104MC1FD3F6C10MF",
+      "supplier": "LCSC",
+      "supplierPartNumber": "C254085",
+      "specification": "100nF / 50V Y5V",
+      "package": "直插 P5.08mm",
+      "unit": "piece"
+    },
+    {
+      "id": "material-C46550416",
+      "name": "10µF 电解电容（贴片）",
+      "category": "电容",
+      "manufacturerPartNumber": "JVJ50v10M5x5",
+      "supplier": "LCSC",
+      "supplierPartNumber": "C46550416",
+      "specification": "10µF / 50V",
+      "package": "贴片 D5×5mm",
+      "unit": "piece"
+    },
+    {
+      "id": "material-C124375",
+      "name": "2 针排针",
+      "category": "连接器",
+      "manufacturerPartNumber": "B-2100S02P-A110",
+      "supplier": "LCSC",
+      "supplierPartNumber": "C124375",
+      "specification": "1×2，间距 2.54mm",
+      "package": "直插",
+      "unit": "piece"
+    },
+    {
+      "id": "material-C965827",
+      "name": "蓝色 LED",
+      "category": "LED",
+      "manufacturerPartNumber": "XL-3216UBC",
+      "supplier": "LCSC",
+      "supplierPartNumber": "C965827",
+      "specification": "蓝色",
+      "package": "1206",
+      "unit": "piece"
+    },
+    {
+      "id": "material-C5172924",
+      "name": "红色 LED（直插）",
+      "category": "LED",
+      "manufacturerPartNumber": "EL302RD",
+      "supplier": "LCSC",
+      "supplierPartNumber": "C5172924",
+      "specification": "红色，3mm",
+      "package": "直插",
+      "unit": "piece"
+    },
+    {
+      "id": "material-C965828",
+      "name": "白色 LED",
+      "category": "LED",
+      "manufacturerPartNumber": "XL-3216UWC",
+      "supplier": "LCSC",
+      "supplierPartNumber": "C965828",
+      "specification": "白色",
+      "package": "1206",
+      "unit": "piece"
+    },
+    {
+      "id": "material-C22978",
+      "name": "3.3kΩ 电阻",
+      "category": "电阻",
+      "manufacturerPartNumber": "0603WAF3301T5E",
+      "supplier": "LCSC",
+      "supplierPartNumber": "C22978",
+      "specification": "3.3kΩ / 1%",
+      "package": "0603 贴片",
+      "unit": "piece"
+    },
+    {
+      "id": "material-C2907002",
+      "name": "1kΩ 电阻",
+      "category": "电阻",
+      "manufacturerPartNumber": "FRC0603F1001TS",
+      "supplier": "LCSC",
+      "supplierPartNumber": "C2907002",
+      "specification": "1kΩ / 1%",
+      "package": "0603 贴片",
+      "unit": "piece"
+    },
+    {
+      "id": "material-C2906982",
+      "name": "10kΩ 电阻",
+      "category": "电阻",
+      "manufacturerPartNumber": "FRC0603F1002TS",
+      "supplier": "LCSC",
+      "supplierPartNumber": "C2906982",
+      "specification": "10kΩ / 1%",
+      "package": "0603 贴片",
+      "unit": "piece"
+    },
+    {
+      "id": "material-C48997895",
+      "name": "100kΩ 可调电阻",
+      "category": "电位器",
+      "manufacturerPartNumber": "JER33X-1-15",
+      "supplier": "LCSC",
+      "supplierPartNumber": "C48997895",
+      "specification": "100kΩ",
+      "package": "贴片 3P",
+      "unit": "piece"
+    },
+    {
+      "id": "material-C6986",
+      "name": "555 定时器",
+      "category": "芯片",
+      "manufacturerPartNumber": "TLC555CDR",
+      "supplier": "LCSC",
+      "supplierPartNumber": "C6986",
+      "specification": "CMOS 555",
+      "package": "SOIC-8",
+      "unit": "piece"
+    },
+    {
+      "id": "material-C11349",
+      "name": "4017 计数器",
+      "category": "芯片",
+      "manufacturerPartNumber": "CD4017BM96",
+      "supplier": "LCSC",
+      "supplierPartNumber": "C11349",
+      "specification": "十进制计数器",
+      "package": "SOIC-16",
+      "unit": "piece"
+    },
+    {
+      "id": "material-C99881",
+      "name": "绿色 LED",
+      "category": "LED",
+      "manufacturerPartNumber": "NCD1206G1",
+      "supplier": "LCSC",
+      "supplierPartNumber": "C99881",
+      "specification": "绿色",
+      "package": "1206",
+      "unit": "piece"
+    },
+    {
+      "id": "material-C84270",
+      "name": "红色 LED（贴片）",
+      "category": "LED",
+      "manufacturerPartNumber": "NCD1206R1",
+      "supplier": "LCSC",
+      "supplierPartNumber": "C84270",
+      "specification": "红色",
+      "package": "1206",
+      "unit": "piece"
+    }
+  ],
+  "purchaseBatches": [
+    {
+      "id": "purchase-record-001",
+      "externalOrderId": null,
+      "status": "reported_ordered",
+      "orderedAt": null,
+      "currency": "CNY",
+      "totalPaid": null,
+      "lines": [
+        {
+          "materialId": "material-C47344184",
+          "orderedQuantity": 20,
+          "quantityEvidence": "此前浏览器配单核对记录；最终付款清单待复核",
+          "finalOrderVerified": false
+        },
+        {
+          "materialId": "material-C5137477",
+          "orderedQuantity": 100,
+          "quantityEvidence": "此前浏览器配单核对记录；最终付款清单待复核",
+          "finalOrderVerified": false
+        },
+        {
+          "materialId": "material-C254085",
+          "orderedQuantity": 20,
+          "quantityEvidence": "此前浏览器配单核对记录；最终付款清单待复核",
+          "finalOrderVerified": false
+        },
+        {
+          "materialId": "material-C46550416",
+          "orderedQuantity": 20,
+          "quantityEvidence": "此前浏览器配单核对记录；最终付款清单待复核",
+          "finalOrderVerified": false
+        },
+        {
+          "materialId": "material-C124375",
+          "orderedQuantity": 20,
+          "quantityEvidence": "此前浏览器配单核对记录；最终付款清单待复核",
+          "finalOrderVerified": false
+        },
+        {
+          "materialId": "material-C965827",
+          "orderedQuantity": 50,
+          "quantityEvidence": "此前浏览器配单核对记录；最终付款清单待复核",
+          "finalOrderVerified": false
+        },
+        {
+          "materialId": "material-C5172924",
+          "orderedQuantity": 40,
+          "quantityEvidence": "2026-10-22 用户明确确认 40 颗",
+          "finalOrderVerified": false
+        },
+        {
+          "materialId": "material-C965828",
+          "orderedQuantity": 50,
+          "quantityEvidence": "此前浏览器配单核对记录；最终付款清单待复核",
+          "finalOrderVerified": false
+        },
+        {
+          "materialId": "material-C22978",
+          "orderedQuantity": 100,
+          "quantityEvidence": "此前浏览器配单核对记录；最终付款清单待复核",
+          "finalOrderVerified": false
+        },
+        {
+          "materialId": "material-C2907002",
+          "orderedQuantity": 100,
+          "quantityEvidence": "此前浏览器配单核对记录；最终付款清单待复核",
+          "finalOrderVerified": false
+        },
+        {
+          "materialId": "material-C2906982",
+          "orderedQuantity": 100,
+          "quantityEvidence": "此前浏览器配单核对记录；最终付款清单待复核",
+          "finalOrderVerified": false
+        },
+        {
+          "materialId": "material-C48997895",
+          "orderedQuantity": 5,
+          "quantityEvidence": "此前浏览器配单核对记录；最终付款清单待复核",
+          "finalOrderVerified": false
+        },
+        {
+          "materialId": "material-C6986",
+          "orderedQuantity": 5,
+          "quantityEvidence": "此前浏览器配单核对记录；最终付款清单待复核",
+          "finalOrderVerified": false
+        },
+        {
+          "materialId": "material-C11349",
+          "orderedQuantity": 5,
+          "quantityEvidence": "用户表示已按五块需求补足；5 颗待订单复核",
+          "finalOrderVerified": false
+        },
+        {
+          "materialId": "material-C99881",
+          "orderedQuantity": 20,
+          "quantityEvidence": "此前浏览器配单核对记录；最终付款清单待复核",
+          "finalOrderVerified": false
+        },
+        {
+          "materialId": "material-C84270",
+          "orderedQuantity": 20,
+          "quantityEvidence": "此前浏览器配单核对记录；最终付款清单待复核",
+          "finalOrderVerified": false
+        }
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "id": "project-runner",
+      "name": "跑马灯",
+      "plannedUnits": 5,
+      "issuedUnits": 0,
+      "bomVersion": 1,
+      "bom": [
+        {
+          "materialId": "material-C47344184",
+          "quantityPerUnit": 1,
+          "designatorsText": "C1"
+        },
+        {
+          "materialId": "material-C5137477",
+          "quantityPerUnit": 1,
+          "designatorsText": "C2"
+        },
+        {
+          "materialId": "material-C254085",
+          "quantityPerUnit": 2,
+          "designatorsText": "C3、C4"
+        },
+        {
+          "materialId": "material-C46550416",
+          "quantityPerUnit": 1,
+          "designatorsText": "C5"
+        },
+        {
+          "materialId": "material-C124375",
+          "quantityPerUnit": 1,
+          "designatorsText": "H1"
+        },
+        {
+          "materialId": "material-C965827",
+          "quantityPerUnit": 1,
+          "designatorsText": "LED2"
+        },
+        {
+          "materialId": "material-C5172924",
+          "quantityPerUnit": 6,
+          "designatorsText": "LED4–LED9"
+        },
+        {
+          "materialId": "material-C965828",
+          "quantityPerUnit": 1,
+          "designatorsText": "LED10"
+        },
+        {
+          "materialId": "material-C22978",
+          "quantityPerUnit": 10,
+          "designatorsText": "R1–R10"
+        },
+        {
+          "materialId": "material-C2907002",
+          "quantityPerUnit": 1,
+          "designatorsText": "R11"
+        },
+        {
+          "materialId": "material-C2906982",
+          "quantityPerUnit": 1,
+          "designatorsText": "R12"
+        },
+        {
+          "materialId": "material-C48997895",
+          "quantityPerUnit": 1,
+          "designatorsText": "R13"
+        },
+        {
+          "materialId": "material-C6986",
+          "quantityPerUnit": 1,
+          "designatorsText": "U2"
+        },
+        {
+          "materialId": "material-C11349",
+          "quantityPerUnit": 1,
+          "designatorsText": "U3"
+        },
+        {
+          "materialId": "material-C99881",
+          "quantityPerUnit": 1,
+          "designatorsText": "LED3"
+        },
+        {
+          "materialId": "material-C84270",
+          "quantityPerUnit": 1,
+          "designatorsText": "LED1"
+        }
+      ]
+    },
+    {
+      "id": "project-stm32-led-lab",
+      "name": "STM32 八路灯效练焊板",
+      "plannedUnits": 1,
+      "issuedUnits": 0,
+      "bomVersion": 1,
+      "bom": [
+        {
+          "materialId": "material-C5137477",
+          "quantityPerUnit": 1,
+          "designatorsText": "C2"
+        },
+        {
+          "materialId": "material-C254085",
+          "quantityPerUnit": 1,
+          "designatorsText": "C1"
+        },
+        {
+          "materialId": "material-C124375",
+          "quantityPerUnit": 6,
+          "designatorsText": "J1–J6"
+        },
+        {
+          "materialId": "material-C2907002",
+          "quantityPerUnit": 8,
+          "designatorsText": "R1–R8"
+        },
+        {
+          "materialId": "material-C2906982",
+          "quantityPerUnit": 1,
+          "designatorsText": "R9"
+        },
+        {
+          "materialId": "material-C84270",
+          "quantityPerUnit": 8,
+          "designatorsText": "LED1–LED8"
+        }
+      ]
+    }
+  ],
+  "openingStock": [
+    {
+      "materialId": "material-C47344184",
+      "receivedCumulative": null,
+      "otherIssuedCumulative": 0,
+      "scrappedCumulative": 0,
+      "locationCode": null,
+      "countedAt": null
+    },
+    {
+      "materialId": "material-C5137477",
+      "receivedCumulative": null,
+      "otherIssuedCumulative": 0,
+      "scrappedCumulative": 0,
+      "locationCode": null,
+      "countedAt": null
+    },
+    {
+      "materialId": "material-C254085",
+      "receivedCumulative": null,
+      "otherIssuedCumulative": 0,
+      "scrappedCumulative": 0,
+      "locationCode": null,
+      "countedAt": null
+    },
+    {
+      "materialId": "material-C46550416",
+      "receivedCumulative": null,
+      "otherIssuedCumulative": 0,
+      "scrappedCumulative": 0,
+      "locationCode": null,
+      "countedAt": null
+    },
+    {
+      "materialId": "material-C124375",
+      "receivedCumulative": null,
+      "otherIssuedCumulative": 0,
+      "scrappedCumulative": 0,
+      "locationCode": null,
+      "countedAt": null
+    },
+    {
+      "materialId": "material-C965827",
+      "receivedCumulative": null,
+      "otherIssuedCumulative": 0,
+      "scrappedCumulative": 0,
+      "locationCode": null,
+      "countedAt": null
+    },
+    {
+      "materialId": "material-C5172924",
+      "receivedCumulative": null,
+      "otherIssuedCumulative": 0,
+      "scrappedCumulative": 0,
+      "locationCode": null,
+      "countedAt": null
+    },
+    {
+      "materialId": "material-C965828",
+      "receivedCumulative": null,
+      "otherIssuedCumulative": 0,
+      "scrappedCumulative": 0,
+      "locationCode": null,
+      "countedAt": null
+    },
+    {
+      "materialId": "material-C22978",
+      "receivedCumulative": null,
+      "otherIssuedCumulative": 0,
+      "scrappedCumulative": 0,
+      "locationCode": null,
+      "countedAt": null
+    },
+    {
+      "materialId": "material-C2907002",
+      "receivedCumulative": null,
+      "otherIssuedCumulative": 0,
+      "scrappedCumulative": 0,
+      "locationCode": null,
+      "countedAt": null
+    },
+    {
+      "materialId": "material-C2906982",
+      "receivedCumulative": null,
+      "otherIssuedCumulative": 0,
+      "scrappedCumulative": 0,
+      "locationCode": null,
+      "countedAt": null
+    },
+    {
+      "materialId": "material-C48997895",
+      "receivedCumulative": null,
+      "otherIssuedCumulative": 0,
+      "scrappedCumulative": 0,
+      "locationCode": null,
+      "countedAt": null
+    },
+    {
+      "materialId": "material-C6986",
+      "receivedCumulative": null,
+      "otherIssuedCumulative": 0,
+      "scrappedCumulative": 0,
+      "locationCode": null,
+      "countedAt": null
+    },
+    {
+      "materialId": "material-C11349",
+      "receivedCumulative": null,
+      "otherIssuedCumulative": 0,
+      "scrappedCumulative": 0,
+      "locationCode": null,
+      "countedAt": null
+    },
+    {
+      "materialId": "material-C99881",
+      "receivedCumulative": null,
+      "otherIssuedCumulative": 0,
+      "scrappedCumulative": 0,
+      "locationCode": null,
+      "countedAt": null
+    },
+    {
+      "materialId": "material-C84270",
+      "receivedCumulative": null,
+      "otherIssuedCumulative": 0,
+      "scrappedCumulative": 0,
+      "locationCode": null,
+      "countedAt": null
+    }
+  ],
+  "stockMovements": []
+}

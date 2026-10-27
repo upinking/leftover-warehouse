@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="theme-color" content="#234c3b" />
+    <title>余料仓库</title>
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='15' fill='%23234c3b'/%3E%3Cpath d='M16 23h32v25H16zM12 16h40v9H12z' fill='none' stroke='%23e8e9d7' stroke-width='4'/%3E%3Cpath d='M27 32h10' stroke='%23e8e9d7' stroke-width='4'/%3E%3C/svg%3E"
+    />
+    <link rel="stylesheet" href="/styles.css" />
+    <script src="/ai.js" defer></script>
+    <script src="/app.js" defer></script>
+  </head>
+  <body>
+    <aside class="sidebar">
+      <a class="brand" href="#materials"
+        ><span class="brand-icon">▦</span><span>余料仓库</span></a
+      >
+      <div class="workspace-label">我的工作台 <span>本地</span></div>
+      <nav aria-label="主导航">
+        <button data-page="ai" class="nav-item"><span>✦</span>AI 助手</button>
+        <button data-page="materials" class="nav-item active">
+          <span>▦</span>物料仓库
+        </button>
+        <button data-page="projects" class="nav-item">
+          <span>◇</span>项目配料
+        </button>
+        <button data-page="history" class="nav-item">
+          <span>↗</span>库存流水
+        </button>
+        <button data-page="backup" class="nav-item">
+          <span>⇩</span>备份与恢复
+        </button>
+      </nav>
+      <div class="sidebar-bottom">
+        <span class="status-dot"></span>本地单用户仓库
+        <small>本地记账 · AI 需连接模型接口</small>
+      </div>
+    </aside>
+    <div class="shell">
+      <header class="topbar">
+        <div>
+          <span class="breadcrumb">我的仓库</span><span class="slash">/</span
+          ><span id="page-crumb">物料仓库</span>
+        </div>
+        <div class="save-status" id="save-status" role="status">
+          <span class="status-dot"></span>正在读取本地数据
+        </div>
+      </header>
+      <main id="main"><div class="loading">正在打开仓库…</div></main>
+      <footer>
+        数量单位：个完整元件<span>数据仅保存在本机 · 记得定期导出备份</span>
+      </footer>
+    </div>
+    <dialog id="editor" aria-labelledby="dialog-title">
+      <div id="dialog-content"></div>
+    </dialog>
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  </body>
+</html>

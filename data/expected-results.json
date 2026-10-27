@@ -1,0 +1,280 @@
+{
+  "schemaVersion": 1,
+  "sourceImportId": "leftover-warehouse-2026-10-22-v1",
+  "baseline": {
+    "materialKinds": 16,
+    "orderedPieces": 675,
+    "runnerReservedPieces": 155,
+    "afterRunnerPieces": 520,
+    "practiceReservedPieces": 25,
+    "totalReservedPieces": 180,
+    "forecastFreePieces": 495,
+    "actualOnHandPieces": null,
+    "notCountedKinds": 16
+  },
+  "stocks": [
+    {
+      "materialId": "material-C47344184",
+      "ordered": 20,
+      "runnerReserved": 5,
+      "practiceReserved": 0,
+      "forecastFree": 15,
+      "actualOnHand": null
+    },
+    {
+      "materialId": "material-C5137477",
+      "ordered": 100,
+      "runnerReserved": 5,
+      "practiceReserved": 1,
+      "forecastFree": 94,
+      "actualOnHand": null
+    },
+    {
+      "materialId": "material-C254085",
+      "ordered": 20,
+      "runnerReserved": 10,
+      "practiceReserved": 1,
+      "forecastFree": 9,
+      "actualOnHand": null
+    },
+    {
+      "materialId": "material-C46550416",
+      "ordered": 20,
+      "runnerReserved": 5,
+      "practiceReserved": 0,
+      "forecastFree": 15,
+      "actualOnHand": null
+    },
+    {
+      "materialId": "material-C124375",
+      "ordered": 20,
+      "runnerReserved": 5,
+      "practiceReserved": 6,
+      "forecastFree": 9,
+      "actualOnHand": null
+    },
+    {
+      "materialId": "material-C965827",
+      "ordered": 50,
+      "runnerReserved": 5,
+      "practiceReserved": 0,
+      "forecastFree": 45,
+      "actualOnHand": null
+    },
+    {
+      "materialId": "material-C5172924",
+      "ordered": 40,
+      "runnerReserved": 30,
+      "practiceReserved": 0,
+      "forecastFree": 10,
+      "actualOnHand": null
+    },
+    {
+      "materialId": "material-C965828",
+      "ordered": 50,
+      "runnerReserved": 5,
+      "practiceReserved": 0,
+      "forecastFree": 45,
+      "actualOnHand": null
+    },
+    {
+      "materialId": "material-C22978",
+      "ordered": 100,
+      "runnerReserved": 50,
+      "practiceReserved": 0,
+      "forecastFree": 50,
+      "actualOnHand": null
+    },
+    {
+      "materialId": "material-C2907002",
+      "ordered": 100,
+      "runnerReserved": 5,
+      "practiceReserved": 8,
+      "forecastFree": 87,
+      "actualOnHand": null
+    },
+    {
+      "materialId": "material-C2906982",
+      "ordered": 100,
+      "runnerReserved": 5,
+      "practiceReserved": 1,
+      "forecastFree": 94,
+      "actualOnHand": null
+    },
+    {
+      "materialId": "material-C48997895",
+      "ordered": 5,
+      "runnerReserved": 5,
+      "practiceReserved": 0,
+      "forecastFree": 0,
+      "actualOnHand": null
+    },
+    {
+      "materialId": "material-C6986",
+      "ordered": 5,
+      "runnerReserved": 5,
+      "practiceReserved": 0,
+      "forecastFree": 0,
+      "actualOnHand": null
+    },
+    {
+      "materialId": "material-C11349",
+      "ordered": 5,
+      "runnerReserved": 5,
+      "practiceReserved": 0,
+      "forecastFree": 0,
+      "actualOnHand": null
+    },
+    {
+      "materialId": "material-C99881",
+      "ordered": 20,
+      "runnerReserved": 5,
+      "practiceReserved": 0,
+      "forecastFree": 15,
+      "actualOnHand": null
+    },
+    {
+      "materialId": "material-C84270",
+      "ordered": 20,
+      "runnerReserved": 5,
+      "practiceReserved": 8,
+      "forecastFree": 7,
+      "actualOnHand": null
+    }
+  ],
+  "practiceCapacity": {
+    "priorityProject": "project-runner",
+    "forProject": "project-stm32-led-lab",
+    "includesPlannedPracticeUnits": true,
+    "forecastWholeUnits": 1,
+    "actualWholeUnits": null,
+    "actualStatus": "not_counted",
+    "limits": [
+      {
+        "materialId": "material-C5137477",
+        "afterRunnerReserved": 95,
+        "practicePerUnit": 1,
+        "wholeUnits": 95
+      },
+      {
+        "materialId": "material-C254085",
+        "afterRunnerReserved": 10,
+        "practicePerUnit": 1,
+        "wholeUnits": 10
+      },
+      {
+        "materialId": "material-C124375",
+        "afterRunnerReserved": 15,
+        "practicePerUnit": 6,
+        "wholeUnits": 2
+      },
+      {
+        "materialId": "material-C2907002",
+        "afterRunnerReserved": 95,
+        "practicePerUnit": 8,
+        "wholeUnits": 11
+      },
+      {
+        "materialId": "material-C2906982",
+        "afterRunnerReserved": 95,
+        "practicePerUnit": 1,
+        "wholeUnits": 95
+      },
+      {
+        "materialId": "material-C84270",
+        "afterRunnerReserved": 15,
+        "practicePerUnit": 8,
+        "wholeUnits": 1
+      }
+    ],
+    "bottleneckMaterialId": "material-C84270"
+  },
+  "scenarios": [
+    {
+      "name": "未点数",
+      "expected": "所有实物结余未知；实物领料被阻止；不影响预计配料结果"
+    },
+    {
+      "name": "确认实收为零",
+      "change": {
+        "receivedCumulative": {
+          "material-C84270": 0
+        }
+      },
+      "expected": {
+        "redActualOnHand": 0,
+        "redNotCounted": false
+      }
+    },
+    {
+      "name": "计划两块新灯板",
+      "change": {
+        "project-stm32-led-lab.plannedUnits": 2
+      },
+      "expected": {
+        "redForecastFree": -1,
+        "redShortage": 1,
+        "totalForecastFree": 470,
+        "forecastPracticeCapacity": 1
+      }
+    },
+    {
+      "name": "先收齐再领一块新灯板",
+      "fixtureOnly": true,
+      "setup": "将所有实收设为已订量，再对灯板执行一次整套领料",
+      "expected": {
+        "issuedPieces": 25,
+        "actualOnHandPieces": 650,
+        "pendingReservedPieces": 155,
+        "forecastFreePieces": 495,
+        "redActualOnHand": 12,
+        "redForecastFree": 7
+      }
+    },
+    {
+      "name": "增加红色1206采购量",
+      "change": {
+        "orderedQuantity": {
+          "material-C84270": 30
+        }
+      },
+      "expected": {
+        "forecastPracticeCapacity": 2,
+        "limitingMaterialId": "material-C124375"
+      }
+    },
+    {
+      "name": "红色1206损耗8颗",
+      "fixtureOnly": true,
+      "setup": "先收齐再登记红色1206损耗8颗",
+      "expected": {
+        "redForecastFree": -1,
+        "forecastPracticeCapacity": 0
+      }
+    },
+    {
+      "name": "整板领料缺料",
+      "fixtureOnly": true,
+      "setup": "只收到了所需物料中的一部分，然后尝试整板领料",
+      "expected": "失败且列明全部缺项；所有物料余额及领料套数保持原状"
+    },
+    {
+      "name": "重复导入",
+      "expected": "相同 importId 第二次导入不新增物料、采购和余额"
+    },
+    {
+      "name": "重复提交领料",
+      "fixtureOnly": true,
+      "expected": "同一请求标识只能扣一次；不同合法请求按实际领料执行"
+    },
+    {
+      "name": "改BOM不改历史",
+      "fixtureOnly": true,
+      "expected": "历史领料保留当时BOM版本与用量，新的BOM只影响之后的计划或领料"
+    },
+    {
+      "name": "重启和备份恢复",
+      "expected": "所有物料、项目、流水、未知实收状态、库存结果恢复一致"
+    }
+  ]
+}
