@@ -75,7 +75,7 @@ def make_handler(warehouse, ai_service=None):
                     return self.send_json(200, assistant().history())
                 if path == "/api/backup":
                     return self.send_json(200, warehouse.backup(), {"Content-Disposition": 'attachment; filename="warehouse-backup.json"'})
-                files = {"/": "index.html", "/index.html": "index.html", "/app.js": "app.js", "/ai.js": "ai.js", "/styles.css": "styles.css"}
+                files = {"/": "index.html", "/index.html": "index.html", "/app.js": "app.js", "/ai.js": "ai.js", "/bom.js": "bom.js", "/styles.css": "styles.css"}
                 if path == "/favicon.ico":
                     return self.send_bytes(204, b"", "image/x-icon")
                 if path not in files:
@@ -118,6 +118,11 @@ def make_handler(warehouse, ai_service=None):
                     return self.send_json(200, assistant().cancel(body.get("planId")))
                 if path == "/api/ai/clear-key":
                     return self.send_json(200, assistant().clear_key())
+                if path == "/api/bom/parse":
+                    from bom_import import parse_bom
+                    return self.send_json(200, parse_bom(body))
+                if path == "/api/bom/preview":
+                    return self.send_json(200, warehouse.preview_bom(body))
                 if path == "/api/backup/preview":
                     return self.send_json(200, {"preview": warehouse.preview_backup(body)})
                 if path == "/api/action":

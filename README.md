@@ -9,6 +9,7 @@
 - 按名称、型号、立创 C 编号和封装查找元件，记录数量和库位。
 - 登记采购、收货、领用、归还、焊坏、损耗和盘点，保留操作历史。
 - 为多个项目保存 BOM 和计划数量，计算预留、缺料和配齐能力。
+- 导入嘉立创 EDA 导出的 CSV、XLSX BOM，映射列、核对元件后保存项目。
 - 整板领料一次检查、一次提交；缺料时整笔不扣，重复请求不重复扣料。
 - 本地持久化，支持导出备份、恢复前预览和恢复校验。
 - 配置兼容 OpenAI Chat Completions 的 API，通过自然语言查库存、准备操作；修改账本须先核对明细并确认。
@@ -94,6 +95,7 @@ python3 -m unittest discover -s tests -v
 | 路径 | 职责 |
 | --- | --- |
 | `warehouse.py` | 库存规则、事务和 SQLite 保存 |
+| `bom_import.py` | CSV / XLSX 读取、列识别和 BOM 匹配预览 |
 | `app.py` | 本机 HTTP 接口 |
 | `desktop_server.py` | 桌面服务启动、旧账迁移和退出清理 |
 | `ai_assistant.py`、`ai_credentials.py` | AI 接口、操作单和凭据管理 |

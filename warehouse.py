@@ -435,8 +435,13 @@ class Warehouse:
                     result = self._mutate(state, action, payload)
                 if action not in ("seed.import", "backup.restore") or not result.get("skipped"):
                     state["revision"] = state.get("revision", 0) + 1
+                    audit_payload = ({"filename": result["filename"], "fileHash": result["fileHash"],
+                                      "counts": result["counts"], "projectId": result["projectId"]}
+                                     if action == "bom.import" else
+                                     (copy.deepcopy(payload) if action not in ("backup.restore", "seed.import")
+                                      else {"importId": state.get("importId")}))
                     state.setdefault("auditLog", []).append({"id": uid("audit"), "at": now(), "actor": "本地用户", "action": action,
-                                                             "detail": {"summary": result["message"], "payload": copy.deepcopy(payload) if action not in ("backup.restore", "seed.import") else {"importId": state.get("importId")}}})
+                                                             "detail": {"summary": result["message"], "payload": audit_payload}})
                     validate_state(state)
                     self.db.execute("UPDATE ledger SET data=? WHERE id=1", (encoded(state),))
                 self.db.execute("INSERT INTO requests VALUES (?, ?, ?)", (request_id, digest, encoded(result)))
@@ -528,7 +533,42 @@ class Warehouse:
         finally:
             trial.close()
 
+    def preview_bom(self, payload):
+        """将文件与当前账本比对，仅返回预览，不保存任何元件或项目。"""
+        from bom_import import preview_bom
+        with self._lock:
+            return preview_bom(payload, self._read())
+
+    def _import_bom(self, state, payload):
+        from bom_import import preview_bom
+        revision = payload.get("baseRevision")
+        fingerprint = payload.get("baseFingerprint")
+        require(type(revision) is int and revision == state["revision"],
+                "账本已经变化或缺少预览版本，请重新预览 BOM 后再确认导入")
+        require(isinstance(fingerprint, str) and
+                hashlib.sha256(encoded(state).encode("utf-8")).hexdigest() == fingerprint,
+                "账本已经变化，请重新预览 BOM 后再确认导入")
+        # Parsing/matching is deliberately rerun inside the same SQLite transaction.
+        # A caller cannot submit fabricated preview rows or partially create materials.
+        preview = preview_bom(payload, state, include_internal=True)
+        require(preview["canImport"], "BOM 仍有未解决的行，未写入任何元件或项目", {"errors": preview["errors"], "warnings": preview["warnings"]})
+        for material in preview["_newMaterials"]:
+            state["materials"].append(copy.deepcopy(material))
+            state["openingStock"].append({"materialId": material["id"], "receivedCumulative": None,
+                                          "otherIssuedCumulative": 0, "scrappedCumulative": 0,
+                                          "locationCode": None, "countedAt": None})
+        project_payload = {"name": preview["name"], "plannedUnits": preview["plannedUnits"], "bom": preview["_bom"]}
+        if preview["projectId"]:
+            project_payload["id"] = preview["projectId"]
+        saved = self._mutate(state, "project.save", project_payload)
+        return {"message": "BOM 已导入并" + ("替换当前项目用料。" if preview["projectId"] else "保存为新项目。") +
+                           "采购和实物库存没有增加，历史领料保持原样。",
+                "projectId": saved["projectId"], "counts": preview["counts"],
+                "filename": preview["filename"], "fileHash": preview["fileHash"], "warnings": preview["warnings"]}
+
     def _mutate(self, state, action, payload):
+        if action == "bom.import":
+            return self._import_bom(state, payload)
         if action == "material.save":
             mid = payload.get("id") or uid("material")
             existing = next((m for m in state["materials"] if m["id"] == mid), None)

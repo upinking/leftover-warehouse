@@ -48,6 +48,7 @@ const labels = {
   "backup.restore": "备份恢复",
   "stock.record": "库存登记",
   "project.issue": "整板领料",
+  "bom.import": "导入 BOM",
 };
 const materials = () => snapshot?.data.materials ?? [];
 const projects = () => snapshot?.data.projects ?? [];
@@ -209,7 +210,7 @@ function renderProjects() {
   main.innerHTML =
     heading(
       "项目配料",
-      '<button class="primary" data-action="new-project">＋ 新建项目</button>',
+      '<button data-action="import-file-bom">导入 BOM</button><button class="primary" data-action="new-project">＋ 新建项目</button>',
     ) +
     `<div class="notice"><span class="symbol">ⓘ</span><span>配齐总上限先满足其他项目的待领预留，包含当前项目已领和已计划数量，不能直接当成“还可追加几块”。实物待点数时，只提供预计结果。</span></div><div class="project-grid">${
       projects()
@@ -225,7 +226,7 @@ function renderProjects() {
           const short = p.bom.filter(
             (b) => stock(b.materialId).forecastFree < 0,
           );
-          return `<article class="project-card"><div class="project-heading"><h2>${esc(p.name)}</h2><span class="pill ${p.issuedUnits >= p.plannedUnits ? "ok" : ""}">${p.plannedUnits === 0 ? "未计划" : p.issuedUnits >= p.plannedUnits ? "计划已领齐" : "待领料"}</span></div><div class="project-meta">${p.bom.length} 种元件 · 每块 ${per} 个 · BOM v${p.bomVersion}</div><div class="plan"><div><strong>${p.plannedUnits}</strong>块计划</div><div><strong>${p.issuedUnits}</strong>块已领</div><div><strong>${p.plannedUnits - p.issuedUnits}</strong>块待领</div></div><div class="capacity"><div>预计配齐总上限<strong>${c.forecastWholeUnits == null ? "—" : fmt(c.forecastWholeUnits) + " 块"}</strong></div><div class="actual">实物配齐总上限<strong>${c.actualWholeUnits == null ? "待点数" : fmt(c.actualWholeUnits) + " 块"}</strong></div></div><p class="project-hint">优先保留其他项目的待领用料。${bottleneck ? `预计瓶颈：${esc(bottleneck)}。` : ""}</p>${short.length ? `<div class="notice error">${short.map((b) => `${esc(material(b.materialId)?.name)}：全部计划合计缺 ${Math.abs(stock(b.materialId).forecastFree)} 个`).join("<br>")}</div>` : ""}<div class="card-actions"><button class="primary" data-action="issue-project" data-id="${esc(p.id)}" ${p.plannedUnits <= p.issuedUnits ? "disabled" : ""}>整板领料</button><button data-action="edit-project" data-id="${esc(p.id)}">编辑计划 / BOM</button></div><details class="project-bom"><summary>查看每板用料及预计可用数</summary><div class="table-wrap"><table><thead><tr><th>元件</th><th>位号</th><th class="num">每板</th><th class="num">扣其他预留后</th></tr></thead><tbody>${p.bom
+          return `<article class="project-card"><div class="project-heading"><h2>${esc(p.name)}</h2><span class="pill ${p.issuedUnits >= p.plannedUnits ? "ok" : ""}">${p.plannedUnits === 0 ? "未计划" : p.issuedUnits >= p.plannedUnits ? "计划已领齐" : "待领料"}</span></div><div class="project-meta">${p.bom.length} 种元件 · 每块 ${per} 个 · BOM v${p.bomVersion}</div><div class="plan"><div><strong>${p.plannedUnits}</strong>块计划</div><div><strong>${p.issuedUnits}</strong>块已领</div><div><strong>${p.plannedUnits - p.issuedUnits}</strong>块待领</div></div><div class="capacity"><div>预计配齐总上限<strong>${c.forecastWholeUnits == null ? "—" : fmt(c.forecastWholeUnits) + " 块"}</strong></div><div class="actual">实物配齐总上限<strong>${c.actualWholeUnits == null ? "待点数" : fmt(c.actualWholeUnits) + " 块"}</strong></div></div><p class="project-hint">优先保留其他项目的待领用料。${bottleneck ? `预计瓶颈：${esc(bottleneck)}。` : ""}</p>${short.length ? `<div class="notice error">${short.map((b) => `${esc(material(b.materialId)?.name)}：全部计划合计缺 ${Math.abs(stock(b.materialId).forecastFree)} 个`).join("<br>")}</div>` : ""}<div class="card-actions"><button class="primary" data-action="issue-project" data-id="${esc(p.id)}" ${p.plannedUnits <= p.issuedUnits ? "disabled" : ""}>整板领料</button><button data-action="edit-project" data-id="${esc(p.id)}">编辑计划 / BOM</button><button data-action="import-file-bom" data-id="${esc(p.id)}">导入替换 BOM</button></div><details class="project-bom"><summary>查看每板用料及预计可用数</summary><div class="table-wrap"><table><thead><tr><th>元件</th><th>位号</th><th class="num">每板</th><th class="num">扣其他预留后</th></tr></thead><tbody>${p.bom
             .map((b) => {
               const limit = c.limits?.find(
                 (l) => l.materialId === b.materialId,
@@ -563,6 +564,7 @@ document.addEventListener("click", (event) => {
   else if (action === "detail") showDetail(id);
   else if (action === "movement") editMovement(id);
   else if (action === "purchase") editPurchase(id);
+  else if (action === "import-file-bom") window.BOMImport.open(id);
   else if (action === "new-project") editProject();
   else if (action === "edit-project") editProject(id);
   else if (action === "issue-project") issueProject(id);

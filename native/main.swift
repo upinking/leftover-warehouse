@@ -358,12 +358,13 @@ final class WarehouseApp: NSObject, NSApplicationDelegate, NSWindowDelegate,
     func webView(_ webView: WKWebView, runOpenPanelWith parameters: WKOpenPanelParameters,
                  initiatedByFrame frame: WKFrameInfo, completionHandler: @escaping ([URL]?) -> Void) {
         let panel = NSOpenPanel()
-        panel.title = "选择 JSON 文件"
+        panel.title = "选择 BOM 或 JSON 文件"
         panel.prompt = "选择"
         panel.canChooseFiles = true
         panel.canChooseDirectories = parameters.allowsDirectories
         panel.allowsMultipleSelection = parameters.allowsMultipleSelection
-        panel.allowedContentTypes = [.json]
+        panel.allowedContentTypes = [.json, .commaSeparatedText] +
+            [UTType(filenameExtension: "xlsx")].compactMap { $0 }
         panel.beginSheetModal(for: window) { response in
             completionHandler(response == .OK ? panel.urls : nil)
         }

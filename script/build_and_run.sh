@@ -35,7 +35,7 @@ BACKEND_HASH="$("$BUILD_PYTHON" - <<'PY'
 from pathlib import Path
 import hashlib, platform
 h = hashlib.sha256(platform.python_version().encode())
-for p in [Path('app.py'), Path('warehouse.py'), Path('desktop_server.py'), Path('ai_assistant.py'), Path('ai_credentials.py'), Path('requirements-build.txt'), *sorted(Path('web').glob('*')), Path('data/seed.json')]:
+for p in [Path('app.py'), Path('warehouse.py'), Path('desktop_server.py'), Path('ai_assistant.py'), Path('ai_credentials.py'), Path('bom_import.py'), Path('requirements-build.txt'), *sorted(Path('web').glob('*')), Path('data/seed.json')]:
     h.update(str(p).encode()); h.update(p.read_bytes())
 print(h.hexdigest())
 PY

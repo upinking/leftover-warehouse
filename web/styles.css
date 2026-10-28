@@ -1362,3 +1362,179 @@ textarea {
     padding-right: 15px;
   }
 }
+
+/* CSV/XLSX BOM 导入向导 */
+dialog.bom-import-dialog {
+  width: min(1120px, calc(100vw - 40px));
+}
+.bom-import-steps {
+  display: flex;
+  gap: 28px;
+  padding: 0 0 18px;
+  margin: 0 0 18px;
+  list-style: none;
+  border-bottom: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 12px;
+}
+.bom-import-steps li {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+.bom-import-steps li > span {
+  display: grid;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  background: #eef1e7;
+  border-radius: 50%;
+  font-size: 11px;
+}
+.bom-import-steps li.active {
+  color: var(--green);
+  font-weight: 600;
+}
+.bom-import-steps li.active > span {
+  background: var(--green);
+  color: white;
+}
+.bom-import-steps li.done {
+  color: #78916b;
+}
+.bom-import-project {
+  margin-bottom: 22px;
+}
+.bom-import-file {
+  padding: 22px;
+  border: 1px dashed #bdcbb1;
+  border-radius: 8px;
+  background: #f7f9f2;
+}
+.bom-import-file-info {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  font-size: 12px;
+  margin: 20px 0;
+  overflow-wrap: anywhere;
+}
+.bom-import-file-info > span {
+  color: var(--muted);
+  font-size: 11px;
+}
+.bom-import-source {
+  display: flex;
+  gap: 15px;
+  align-items: flex-end;
+  background: #f3f6ec;
+  padding: 16px;
+  border-radius: 8px;
+}
+.bom-import-source .field:first-child {
+  flex: 1;
+}
+.bom-import-source input {
+  max-width: 150px;
+}
+.bom-import-heading {
+  font-size: 14px;
+  font-weight: 550;
+  margin: 25px 0 16px;
+}
+.bom-import-mappings {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 15px;
+}
+.bom-import-mappings select {
+  width: 100%;
+}
+.bom-import-sample {
+  margin-top: 20px;
+  font-size: 12px;
+}
+.bom-import-sample summary {
+  cursor: pointer;
+  margin-bottom: 12px;
+  color: #69825d;
+}
+.bom-import-scroll {
+  max-height: 225px;
+  overflow: auto;
+  border: 1px solid var(--line);
+  border-radius: 7px;
+}
+.bom-import-scroll th {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+.bom-import-scroll td {
+  font-size: 11px;
+  max-width: 290px;
+  overflow-wrap: anywhere;
+}
+.bom-import-preview {
+  max-height: 390px;
+}
+.bom-import-preview .mini-note {
+  max-width: 250px;
+}
+.bom-import-preview select {
+  max-width: 275px;
+  min-width: 205px;
+  font-size: 10px;
+}
+.bom-import-counts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 20px;
+  padding: 15px 18px;
+  background: #f0f4e9;
+  border-radius: 8px;
+  font-size: 11px;
+  color: #7d8c72;
+}
+.bom-import-counts strong {
+  color: var(--green);
+  font-size: 17px;
+  font-weight: 500;
+  margin-left: 9px;
+}
+.bom-import-working {
+  margin: 15px 0 0;
+  font-size: 12px;
+  color: var(--green);
+  text-align: right;
+}
+#bom-import-dirty[hidden] {
+  display: none;
+}
+@media (max-width: 760px) {
+  dialog.bom-import-dialog {
+    max-width: calc(100vw - 20px);
+  }
+  .bom-import-steps {
+    gap: 15px;
+    font-size: 11px;
+  }
+  .bom-import-mappings {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .bom-import-source {
+    flex-wrap: wrap;
+  }
+  .bom-import-source .field:first-child {
+    min-width: 100%;
+  }
+  .bom-import-source input {
+    max-width: 130px;
+  }
+  .bom-import-preview {
+    max-height: 320px;
+  }
+  .bom-import-preview select {
+    min-width: 170px;
+  }
+}
